@@ -1,0 +1,16 @@
+FROM python:3.8
+
+# create a working directory for the app
+WORKDIR /app
+
+# copy the requirements.txt file to the working directory
+COPY requirements.txt .
+
+# install the dependencies
+RUN pip install -r requirements.txt
+
+# copy the rest of the app code to the working directory
+COPY . .
+
+# run the app when the container is started
+CMD ["python", "app.py"]
